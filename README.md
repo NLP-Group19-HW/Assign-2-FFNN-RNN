@@ -20,6 +20,8 @@ One example on running the code:
 ``--train_data training.json --val_data validation.json``
 
 **FFNN run experiments**
+
+
 ``python ffnn.py --hidden_dim 5 --epochs 100 ``
 ``--train_data ./training.json --val_data ./validation.json --test_data ./test.json``
 
