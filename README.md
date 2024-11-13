@@ -19,3 +19,12 @@ One example on running the code:
 ``python rnn.py --hidden_dim 32 --epochs 10 ``
 ``--train_data training.json --val_data validation.json``
 
+**FFNN run experiments**
+``python ffnn.py --hidden_dim 5 --epochs 100 ``
+``--train_data ./training.json --val_data ./validation.json --test_data ./test.json``
+
+``python ffnn.py --hidden_dim 10 --epochs 100 ``
+``--train_data ./training.json --val_data ./validation.json --test_data ./test.json``
+
+``python ffnn.py --hidden_dim 20 --epochs 100 ``
+``--train_data ./training.json --val_data ./validation.json --test_data ./test.json``
