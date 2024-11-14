@@ -11,7 +11,7 @@ One example on running the code:
 **FFNN**
 
 ``python ffnn.py --hidden_dim 10 --epochs 1 ``
-``--train_data ./training.json --val_data ./validation.json``
+``--train_data ./training.json --val_data ./validation.json ``
 
 
 **RNN**
@@ -36,3 +36,10 @@ Run experiments:
 
 ``python ffnn.py --hidden_dim 20 --epochs 100 ``
 ``--train_data ./training.json --val_data ./validation.json --test_data ./test.json``
+
+
+**RNN**
+
+
+``python rnn.py --hidden_dim 128 --epochs 20 ``
+``--train_data training.json --val_data validation.json --embeddings_path ./word_embedding.pkl``
