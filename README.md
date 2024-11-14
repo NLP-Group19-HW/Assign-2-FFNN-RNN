@@ -24,6 +24,7 @@ One example on running the code:
 
 Run experiments:
 
+***Notice: Need to change file path for finding .json and .pkl
 
 **FFNN**
 
@@ -40,6 +41,7 @@ Run experiments:
 
 **RNN**
 
+**Notice: Here do not have word_embedding.pkl file since it is too large  to be uploaded
 
 ``python rnn.py --hidden_dim 128 --epochs 20 ``
 ``--train_data training.json --val_data validation.json --embeddings_path ./word_embedding.pkl``
