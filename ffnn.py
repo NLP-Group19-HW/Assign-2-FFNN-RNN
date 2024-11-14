@@ -172,7 +172,7 @@ if __name__ == "__main__":
                     input_vector, gold_label = train_data[minibatch_index * minibatch_size + example_index]
                     predicted_vector = model(input_vector)
                     predicted_label = torch.argmax(predicted_vector)
-                    # 将 predicted_vector 和 predicted_label 写入文件
+                    # write predicted_vector & predicted_label into file
                     f.write(f"Predicted Vector: {predicted_vector.tolist()} \t Predicted Label: {predicted_label} \n")
                     correct += int(predicted_label == gold_label)
                     total += 1
@@ -215,7 +215,7 @@ if __name__ == "__main__":
                     input_vector, gold_label = valid_data[minibatch_index * minibatch_size + example_index]
                     predicted_vector = model(input_vector)
                     predicted_label = torch.argmax(predicted_vector)
-                    # 将 predicted_vector 和 predicted_label 写入文件
+                    # write predicted_vector & predicted_label into file
                     f.write(f"Predicted Vector: {predicted_vector.tolist()} \t Predicted Label: {predicted_label} \n")
                     correct += int(predicted_label == gold_label)
                     total += 1
@@ -269,7 +269,7 @@ if __name__ == "__main__":
                 predicted_label = torch.argmax(predicted_vector)
                 true_labels.append(gold_label)
                 predicted_labels.append(predicted_label)
-                # 将 predicted_vector 和 predicted_label 写入文件
+                # write predicted_vector & predicted_label into file
                 f.write(f"Predicted Vector: {predicted_vector.tolist()} \t Predicted Label: {predicted_label} \n")
                 correct += int(predicted_label == gold_label)
                 total += 1
