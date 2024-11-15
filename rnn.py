@@ -103,20 +103,22 @@ def train_and_evaluate(args):
     print(f"{'Hidden Dim':<12} | {'Train Acc':<10} | {'Valid Acc':<10} | {'Train Loss':<10} | {'Valid Loss':<10} | {'Train Time':<10} | {'Valid Time':<10}")
     print("-" * 90)
 
+    patience = 20  
+    best_val_loss = float('inf')
+    best_val_acc = 0.0
+    epochs_no_improve = 0
+
+    
     for epoch in range(args.epochs):
-        # Training Phase
         model.train()
         start_time = time.time()
         train_acc, train_loss = run_training_epoch(model, train_data, optimizer, embeddings, args.batch_size)
         train_time = time.time() - start_time
 
-        # Validation Phase
         val_acc, val_loss, val_time = evaluate_model(model, val_data, embeddings)
         
-        # Print results for this epoch
         print(f"{args.hidden_dim:<12} | {train_acc:<10.4f} | {val_acc:<10.4f} | {train_loss:<10.4f} | {val_loss:<10.4f} | {train_time:<10.2f}s | {val_time:<10.2f}s")
 
-        # Save results for each epoch
         results["train"].append({
             "epoch": epoch + 1,
             "accuracy": train_acc,
@@ -130,7 +132,6 @@ def train_and_evaluate(args):
             "time": val_time
         })
 
-    # Evaluate on test data
     test_acc, precision, recall, f1, conf_matrix = evaluate_test_data(model, test_data, embeddings)
     results["test"] = {
         "accuracy": test_acc,
@@ -149,7 +150,6 @@ def train_and_evaluate(args):
     print("Confusion Matrix:")
     print(conf_matrix)
 
-    # Save results to JSON
     with open("rnn_results.json", "w") as f:
         json.dump(results, f, indent=4)
 
